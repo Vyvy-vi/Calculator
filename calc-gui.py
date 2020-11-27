@@ -1,13 +1,13 @@
 from tkinter import *
-
+from tkmacosx import Button
 
 w= Tk()
 w.title('Calculator')
-w.configure(bg='cyan')
+w.configure(bg='#ff6b6b')
 
 fr= LabelFrame(w, pady= 10)
 fr.pack(padx =5, pady =5)
-fr.configure(bg= '#36454f')
+fr.configure(bg= '#1a535c')
 e= Entry(fr, width= 35, borderwidth= 4, font=('Verdana', 15))
 e.grid(column= 0, row=0, columnspan= 3, padx=10, pady=(60,10))
 ls=[]
@@ -24,10 +24,10 @@ def numop(op):
     if 'ERROR.....!!!' in e.get():
         clear()
         return
-    if e.get().startswith('0') and len(e.get())!=1:
-        num=eval(e.get()[1:])
+    if '.' not in str(e.get()):
+        num=int(str(e.get()))
     else:
-        num=eval(e.get())
+        num=float(str(e.get()))
     e.delete(0, END)
     global ls
     ls.append(num)
@@ -36,6 +36,8 @@ def numop(op):
 def eq():
     if 'ERROR.....!!!' in e.get():
         clear()
+        return
+    elif len(e.get())==0:
         return
 
     if '.' not in str(e.get()):
@@ -64,18 +66,19 @@ def math(l):
                 print('Error',ex)
                 return 'ERROR.....!!!'
     return bal
+
 #Button defs
 
-but_0= Button(fr, text='0', padx=40, pady=20, command=lambda: bc(0))
-but_1= Button(fr, text='1', padx=40, pady=20, command=lambda: bc(1))
-but_2= Button(fr, text='2', padx=40, pady=20, command=lambda: bc(2))
-but_3= Button(fr, text='3', padx=40, pady=20, command=lambda: bc(3))
-but_4= Button(fr, text='4', padx=40, pady=20, command=lambda: bc(4))
-but_5= Button(fr, text='5', padx=40, pady=20, command=lambda: bc(5))
-but_6= Button(fr, text='6', padx=40, pady=20, command=lambda: bc(6))
-but_7= Button(fr, text='7', padx=40, pady=20, command=lambda: bc(7))
-but_8= Button(fr, text='8', padx=40, pady=20, command=lambda: bc(8))
-but_9= Button(fr, text='9', padx=40, pady=20, command=lambda: bc(9))
+but_0= Button(fr, text='0', padx=40, pady=20, command=lambda: bc(0), bg="#ffe66d", highlightbackground="#1a535d")
+but_1= Button(fr, text='1', padx=40, pady=20, command=lambda: bc(1), bg="#ffe66d", highlightbackground="#1a535d")
+but_2= Button(fr, text='2', padx=40, pady=20, command=lambda: bc(2), bg="#ffe66d", highlightbackground="#1a535d")
+but_3= Button(fr, text='3', padx=40, pady=20, command=lambda: bc(3), bg="#ffe66d", highlightbackground="#1a535d")
+but_4= Button(fr, text='4', padx=40, pady=20, command=lambda: bc(4), bg="#ffe66d", highlightbackground="#1a535d")
+but_5= Button(fr, text='5', padx=40, pady=20, command=lambda: bc(5), bg="#ffe66d", highlightbackground="#1a535d")
+but_6= Button(fr, text='6', padx=40, pady=20, command=lambda: bc(6), bg="#ffe66d", highlightbackground="#1a535d")
+but_7= Button(fr, text='7', padx=40, pady=20, command=lambda: bc(7), bg="#ffe66d", highlightbackground="#1a535d")
+but_8= Button(fr, text='8', padx=40, pady=20, command=lambda: bc(8), bg="#ffe66d", highlightbackground="#1a535d")
+but_9= Button(fr, text='9', padx=40, pady=20, command=lambda: bc(9), bg="#ffe66d", highlightbackground="#1a535d")
 
 but_equ= Button(fr, text='=', padx=91, pady=20, command=eq)
 but_clr= Button(fr, text='clear', padx=81, pady=20, command=clear)
