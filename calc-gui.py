@@ -1,17 +1,25 @@
 from tkinter import *
+
+
 w= Tk()
 w.title('Calculator')
+w.configure(bg='cyan')
+
 fr= LabelFrame(w, pady= 10)
 fr.pack(padx =5, pady =5)
-e= Entry(fr, width= 35, borderwidth= 4)
-e.grid(column= 0, row=0, columnspan= 3, padx=10, pady=10)
+fr.configure(bg= '#36454f')
+e= Entry(fr, width= 35, borderwidth= 4, font=('Verdana', 15))
+e.grid(column= 0, row=0, columnspan= 3, padx=10, pady=(60,10))
 ls=[]
+
 def bc(n):
     current= e.get()
     e.delete(0, END)
     e.insert(0, str(current) + str(n))
+
 def clear():
     e.delete(0, END)
+
 def numop(op):
     if 'ERROR.....!!!' in e.get():
         clear()
@@ -24,19 +32,22 @@ def numop(op):
     global ls
     ls.append(num)
     ls.append(op)
+
 def eq():
     if 'ERROR.....!!!' in e.get():
         clear()
         return
-    if e.get().startswith('0') and len(e.get())!=1:
-        num= eval(e.get()[1:])
+
+    if '.' not in str(e.get()):
+        num = int(str(e.get()))
     else:
-        num=eval(e.get())
+        num = float(str(e.get()))
     e.delete(0, END)
     global ls
     ls.append(num)
     e.insert(0,math(ls))
     ls.clear()
+
 def math(l):
     bal= l[0]
     for i in range(1,len(l)):
@@ -45,7 +56,7 @@ def math(l):
         elif l[i]=='-':
             bal-=l[i+1]
         elif l[i]=='x':
-           bal*=l[i+1]
+            bal*=l[i+1]
         elif l[i]=='/':
             try:
                 bal/=l[i+1]
