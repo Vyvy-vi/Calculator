@@ -4,17 +4,16 @@ from tkmacosx import Button
 w = Tk()
 w.title('Calculator')
 w.configure(bg='#ff6b6b')
-w.geometry('400x400')
 
 fr = LabelFrame(w, pady=20)
 fr.pack(padx=5, pady=5)
 fr.configure(bg='#1a535c')
-e = Entry(fr, width=35, borderwidth=4, font=('Verdana', 15))
-e.grid(column=0, row=0, columnspan=3, padx=10, pady=(60, 10))
+e = Entry(fr, width=40, borderwidth=4, font=('Verdana', 15))
+e.grid(column=0, row=0, columnspan=3, padx=5, pady=(60, 30))
 ls = []
 
 
-def bc(n):
+def num_append(n):
     current = e.get()
     e.delete(0, END)
     e.insert(0, str(current) + str(n))
@@ -83,7 +82,7 @@ but_0 = Button(
     text='0',
     padx=25,
     pady=20,
-    command=lambda: bc(0),
+    command=lambda: num_append(0),
     bg=yellow,
     highlightbackground=ascent)
 but_1 = Button(
@@ -91,7 +90,7 @@ but_1 = Button(
     text='1',
     padx=25,
     pady=20,
-    command=lambda: bc(1),
+    command=lambda: num_append(1),
     bg=yellow,
     highlightbackground=ascent)
 but_2 = Button(
@@ -99,7 +98,7 @@ but_2 = Button(
     text='2',
     padx=25,
     pady=20,
-    command=lambda: bc(2),
+    command=lambda: num_append(2),
     bg=yellow,
     highlightbackground=ascent)
 but_3 = Button(
@@ -107,7 +106,7 @@ but_3 = Button(
     text='3',
     padx=25,
     pady=20,
-    command=lambda: bc(3),
+    command=lambda: num_append(3),
     bg=yellow,
     highlightbackground=ascent)
 but_4 = Button(
@@ -115,7 +114,7 @@ but_4 = Button(
     text='4',
     padx=25,
     pady=20,
-    command=lambda: bc(4),
+    command=lambda: num_append(4),
     bg=yellow,
     highlightbackground=ascent)
 but_5 = Button(
@@ -123,7 +122,7 @@ but_5 = Button(
     text='5',
     padx=25,
     pady=20,
-    command=lambda: bc(5),
+    command=lambda: num_append(5),
     bg=yellow,
     highlightbackground=ascent)
 but_6 = Button(
@@ -131,7 +130,7 @@ but_6 = Button(
     text='6',
     padx=25,
     pady=20,
-    command=lambda: bc(6),
+    command=lambda: num_append(6),
     bg=yellow,
     highlightbackground=ascent)
 but_7 = Button(
@@ -139,7 +138,7 @@ but_7 = Button(
     text='7',
     padx=25,
     pady=20,
-    command=lambda: bc(7),
+    command=lambda: num_append(7),
     bg=yellow,
     highlightbackground=ascent)
 but_8 = Button(
@@ -147,7 +146,7 @@ but_8 = Button(
     text='8',
     padx=25,
     pady=20,
-    command=lambda: bc(8),
+    command=lambda: num_append(8),
     bg=yellow,
     highlightbackground=ascent)
 but_9 = Button(
@@ -155,7 +154,7 @@ but_9 = Button(
     text='9',
     padx=25,
     pady=20,
-    command=lambda: bc(9),
+    command=lambda: num_append(9),
     bg=yellow,
     highlightbackground=ascent)
 
@@ -175,7 +174,8 @@ but_clr = Button(
     command=clear,
     bg=yellow,
     highlightbackground=ascent)
-# math
+
+# math_buttons
 but_add = Button(
     fr,
     text='+',
@@ -208,6 +208,7 @@ but_div = Button(
     command=lambda: numop('/'),
     bg=yellow,
     highlightbackground=ascent)
+
 # layering
 but_0.grid(row='4', column='0', padx=10)
 
@@ -230,4 +231,5 @@ but_clr.grid(row=4, column=1, columnspan=2)
 but_sub.grid(row=6, column=0, padx=10)
 but_mul.grid(row=6, column=1, padx=10)
 but_div.grid(row=6, column=2, padx=10)
+
 w.mainloop()
