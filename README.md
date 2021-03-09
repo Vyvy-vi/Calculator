@@ -4,9 +4,10 @@ A basic Calculator made using tkinter and Python
 The current version uses the Button class from tkmacosx rather than the default tkinter buttons.
 This leads to better and non-broken button-styling on macos.
 
-## How to host this locally?:
+## How to run this locally?:
 - `pip install tkinter`
 - `pip install tkmacosx`
+- `python calc-gui.py`
 
 ## How to contribute to this project?:
 - Fork this repo
