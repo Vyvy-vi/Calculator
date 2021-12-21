@@ -7,8 +7,7 @@ This leads to better and non-broken button-styling on macos.
 ![GIF-of-Calculator](https://user-images.githubusercontent.com/62864373/110453458-2ec17680-80ec-11eb-8ec8-57ee183960d9.gif)
 
 ## How to run this locally?:
-- `pip install tkinter`
-- `pip install tkmacosx`
+- `pip install -r requirements.txt`
 - `python calc-gui.py`
 
 ## How to contribute to this project?:
